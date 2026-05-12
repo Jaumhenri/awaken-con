@@ -1,0 +1,44 @@
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+.overlay.open { display: flex; }
+
+.overlay a {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 48px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.overlay a:hover {
+  background: var(--grad-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ctaLink {
+  background: var(--grad-warm);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.close {
+  position: absolute;
+  top: 24px; right: 24px;
+  font-size: 36px;
+  cursor: pointer;
+  color: var(--white);
+  background: none;
+  border: none;
+}

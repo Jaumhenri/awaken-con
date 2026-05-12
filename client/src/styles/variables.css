@@ -1,0 +1,26 @@
+:root {
+  --black:   #080808;
+  --dark:    #0f0f0f;
+  --dark2:   #161616;
+  --gray:    #6b6460;
+  --cream:   #e8e3de;
+  --white:   #ffffff;
+
+  --blue:    #0022ff;
+  --cyan:    #00ddff;
+  --purple:  #6600cc;
+  --magenta: #cc00cc;
+  --pink:    #ff0066;
+  --red:     #ff2200;
+  --orange:  #ff5500;
+  --orange2: #ff7700;
+
+  --grad-warm:   linear-gradient(135deg, #0022ff 0%, #6600cc 20%, #cc00cc 40%, #ff0066 60%, #ff3300 80%, #ff7700 100%);
+  --grad-fire:   linear-gradient(135deg, #cc00cc, #ff0066, #ff5500);
+  --grad-cool:   linear-gradient(135deg, #0022ff, #00ddff);
+  --grad-purple: linear-gradient(135deg, #6600cc, #ff0066, #ff5500);
+
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body:    'Space Grotesk', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}

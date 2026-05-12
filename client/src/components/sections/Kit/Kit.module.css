@@ -1,0 +1,108 @@
+.section {
+  padding: 120px 0;
+  overflow: hidden;
+  position: relative;
+}
+.section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(255,0,102,0.12) 0%, transparent 70%);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+}
+
+.visual {
+  position: relative;
+  height: 440px;
+}
+.box {
+  position: absolute;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 24px;
+  background: rgba(255,255,255,0.03);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.box:nth-child(1) { top: 0;   left: 0; right: 100px; }
+.box:nth-child(2) { top: 100px; right: 0; left: 80px; }
+.box:nth-child(3) { top: 200px; left: 0; right: 120px; }
+.box:nth-child(4) { top: 300px; right: 0; left: 60px; }
+
+.boxIcon {
+  width: 48px; height: 48px;
+  background: var(--grad-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.boxText strong { display: block; font-weight: 600; font-size: 15px; }
+.boxText span   { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(36px, 5vw, 100px);
+  text-transform: uppercase;
+  line-height: 0.9;
+  margin-bottom: 24px;
+}
+.content p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.pricing {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.priceOld {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 32px;
+  color: rgba(255,255,255,0.2);
+  text-decoration: line-through;
+}
+.priceNew {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 1;
+  background: var(--grad-fire);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.save {
+  background: var(--grad-fire);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 80px 0; }
+  .inner { grid-template-columns: 1fr; }
+  .visual { display: none; }
+  .content p { font-size: 16px; }
+}
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .priceNew { font-size: 48px; }
+  .pricing { flex-wrap: wrap; gap: 12px; }
+}

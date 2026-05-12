@@ -1,0 +1,25 @@
+.wrapper {
+  padding: 24px 0;
+  background: var(--grad-warm);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.track {
+  display: inline-flex;
+  animation: marquee 20s linear infinite;
+}
+.item {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(0,0,0,0.3);
+  padding: 0 32px;
+}
+.accent { color: rgba(0,0,0,0.7); }
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
