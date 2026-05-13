@@ -1,13 +1,13 @@
 import { Button } from '../../ui/Button/Button'
 import { GradientText } from '../../ui/GradientText/GradientText'
+import { HeroCanvas } from './HeroCanvas'
 import styles from './Hero.module.css'
 
 export function Hero() {
   return (
     <section className={styles.hero} id="home">
       <div className={styles.bg}>
-        <div className={styles.gradient} />
-        <div className={styles.pattern} />
+        <HeroCanvas />
         <div className={`${styles.blob} ${styles.blob1}`} />
         <div className={`${styles.blob} ${styles.blob2}`} />
         <div className={`${styles.blob} ${styles.blob3}`} />
