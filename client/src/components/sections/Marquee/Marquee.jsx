@@ -14,12 +14,14 @@ const ITEMS = [
 ]
 
 export function Marquee() {
-  const doubled = [...ITEMS, ...ITEMS]
+  // 4 repetitions per half garante que cada metade supera qualquer viewport
+  const half = Array.from({ length: 4 }, () => ITEMS).flat()
+  const track = [...half, ...half]
 
   return (
     <div className={styles.wrapper} aria-hidden="true">
       <div className={styles.track}>
-        {doubled.map((item, i) => (
+        {track.map((item, i) => (
           <span key={i} className={`${styles.item} ${item.accent ? styles.accent : ''}`}>
             {item.text}
           </span>

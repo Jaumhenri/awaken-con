@@ -14,7 +14,6 @@ export function Hero() {
       </div>
 
       <div className={styles.content}>
-        <p className={styles.meta}>[ AWKN/CON &nbsp;·&nbsp; 10.2026 &nbsp;·&nbsp; GRAVATAÍ/RS &nbsp;·&nbsp; BR ]</p>
         <h1 className={styles.title}>
           <GradientText variant="warm" as="span" className={styles.line1}>Awaken</GradientText>
           <span className={styles.line2}>Conference</span>
@@ -24,13 +23,13 @@ export function Hero() {
           Os próximos capítulos estão sendo escritos <em>agora</em>.
         </p>
         <div className={styles.ctas}>
-          <Button href="#ingressos" variant="primary">Garanta seu Ingresso →</Button>
+          <Button href="https://nextingresso.com.br/evento/awaken-conference-2026" target="_blank" rel="noopener noreferrer" variant="primary">Garanta seu Ingresso →</Button>
           <Button href="#sobre"     variant="outline">Saiba Mais</Button>
         </div>
       </div>
 
       <div className={styles.scrollHint} aria-hidden="true">
-        <span>scroll</span>
+        <span>role para conhecer mais</span>
         <div className={styles.scrollLine} />
       </div>
     </section>

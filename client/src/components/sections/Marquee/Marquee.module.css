@@ -6,7 +6,7 @@
 }
 .track {
   display: inline-flex;
-  animation: marquee 20s linear infinite;
+  animation: marquee 35s linear infinite;
 }
 .item {
   font-family: var(--font-display);
@@ -16,6 +16,7 @@
   letter-spacing: 0.05em;
   color: rgba(0,0,0,0.3);
   padding: 0 32px;
+  flex-shrink: 0;
 }
 .accent { color: rgba(0,0,0,0.7); }
 

@@ -9,7 +9,7 @@ export function MobileNav({ open, onClose }) {
       <a href="#ingressos" onClick={handleLink}>Ingressos</a>
       <a href="#sobre"     onClick={handleLink}>Sobre</a>
       <a href="#faq"       onClick={handleLink}>FAQ</a>
-      <a href="#ingressos" onClick={handleLink} className={styles.ctaLink}>
+      <a href="https://nextingresso.com.br/evento/awaken-conference-2026" target="_blank" rel="noopener noreferrer" className={styles.ctaLink}>
         Garanta seu Ingresso
       </a>
     </div>

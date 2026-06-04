@@ -11,7 +11,7 @@ export function FooterCta() {
           <span className={styles.line1}>Seu capítulo</span>
           <span className={styles.line2}>começa aqui.</span>
         </h2>
-        <Button href="#ingressos" variant="primary" style={{ fontSize: '20px', padding: '20px 56px' }}>
+        <Button href="https://nextingresso.com.br/evento/awaken-conference-2026" target="_blank" rel="noopener noreferrer" variant="primary" style={{ fontSize: '20px', padding: '20px 56px' }}>
           Garanta seu Ingresso →
         </Button>
       </Container>

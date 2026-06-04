@@ -17,10 +17,10 @@ export function Gallery() {
       <Container>
         <div className={`${styles.header} reveal`}>
           <h2 className={styles.title}>
-            Como foi em<br />
-            <GradientText variant="fire">'25</GradientText>
+            O que nossa geração<br />
+            <GradientText variant="fire">tem vivido</GradientText>
           </h2>
-          <p>Clique nas imagens e veja como foi a edição anterior</p>
+          <p>Momentos da edição anterior — veja o que Deus fez em 2025</p>
         </div>
 
         <div className={`${styles.grid} reveal`}>

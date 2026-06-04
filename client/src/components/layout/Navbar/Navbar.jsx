@@ -24,7 +24,7 @@ export function Navbar() {
               <li><a href="#faq">FAQ</a></li>
             </ul>
 
-            <a href="#ingressos" className={styles.cta}>Garanta seu Ingresso →</a>
+            <a href="https://nextingresso.com.br/evento/awaken-conference-2026" target="_blank" rel="noopener noreferrer" className={styles.cta}>Garanta seu Ingresso →</a>
 
             <button
               className={styles.toggle}

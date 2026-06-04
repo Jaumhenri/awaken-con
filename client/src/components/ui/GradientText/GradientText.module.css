@@ -2,8 +2,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 }
-.warm   { background: var(--grad-warm); }
-.fire   { background: var(--grad-fire); }
-.cool   { background: var(--grad-cool); }
-.purple { background: var(--grad-purple); }
+.warm   { background-image: var(--grad-warm); }
+.fire   { background-image: var(--grad-fire); }
+.cool   { background-image: var(--grad-cool); }
+.purple { background-image: var(--grad-purple); }

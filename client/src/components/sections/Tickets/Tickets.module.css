@@ -13,6 +13,20 @@
 }
 .sub { font-size: 18px; color: rgba(255,255,255,0.5); }
 
+.deadlineLabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 32px;
+}
+
+.soldOut {
+  opacity: 0.45;
+  filter: grayscale(0.4);
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

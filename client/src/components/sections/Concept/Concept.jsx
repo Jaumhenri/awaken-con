@@ -5,7 +5,6 @@ import styles from './Concept.module.css'
 
 const STATS = [
   { number: '2',  label: 'Dias de Conferência' },
-  { number: '+10', label: 'Palestrantes Nacionais & Internacionais' },
   { number: '∞',  label: 'Capítulos Ainda Sendo Escritos' },
   { number: '1',  label: 'Geração em Movimento' },
 ]
@@ -25,13 +24,6 @@ export function Concept() {
             <p>O livro de Atos termina no capítulo 28 — mas a história da Igreja não. A <strong>Awaken Conference</strong> nasce da convicção de que Deus continua escrevendo os próximos capítulos hoje, através de uma geração que acorda para o sobrenatural.</p>
             <p>Dois dias intensos de imersão, adoração, prédicas de alto nível e encontros que mudam vidas. Uma convocação para a geração que acredita que o melhor ainda está por vir.</p>
 
-            <div className={styles.timeline}>
-              <span className={styles.tlItem}>Passado</span>
-              <div className={styles.tlArrow} />
-              <span className={`${styles.tlItem} ${styles.tlActive}`}>Atos 28</span>
-              <div className={styles.tlArrow} />
-              <span className={`${styles.tlItem} ${styles.tlNext}`}>Atos 29 →</span>
-            </div>
           </div>
 
           <div className={`${styles.right} reveal`}>
