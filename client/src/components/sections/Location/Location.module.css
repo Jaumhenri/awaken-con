@@ -38,7 +38,7 @@
   font-family: var(--font-display);
   font-weight: 900;
   font-size: clamp(48px, 7vw, 100px);
-  line-height: 0.9;
+  line-height: 1;
   background: var(--grad-cool);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

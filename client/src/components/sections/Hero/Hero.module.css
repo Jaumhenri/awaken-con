@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--marquee-height));
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -73,7 +73,7 @@
 
 .meta {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: clamp(11px, 0.75vw, 16px);
   letter-spacing: 0.2em;
   color: rgba(255,255,255,0.5);
   margin-bottom: 20px;
@@ -82,8 +82,8 @@
 .title {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(72px, 12vw, 320px);
-  line-height: 0.88;
+  font-size: clamp(72px, 12vw, 520px);
+  line-height: 1;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   margin-bottom: 32px;
@@ -93,7 +93,7 @@
 .line2 { color: var(--white); }
 
 .tagline {
-  font-size: clamp(16px, 1.4vw, 22px);
+  font-size: clamp(16px, 1.4vw, 32px);
   font-weight: 300;
   color: rgba(255,255,255,0.75);
   max-width: min(520px, 100%);
@@ -105,25 +105,32 @@
 .ctas { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
 
 .scrollHint {
-  position: absolute; bottom: 32px; left: 50%;
+  position: absolute; bottom: clamp(24px, 2.5vw, 48px); left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  display: flex; flex-direction: column; align-items: center; gap: clamp(6px, 0.5vw, 12px);
   animation: scrollBounce 2.5s ease-in-out infinite;
 }
 .scrollHint span {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(10px, 0.75vw, 18px);
   letter-spacing: 0.2em;
   color: rgba(255,255,255,0.3);
+  white-space: nowrap;
 }
 .scrollLine {
-  width: 1px; height: 50px;
+  width: 1px; height: clamp(40px, 3.5vw, 80px);
   background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
 }
 @keyframes scrollBounce {
   0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
   50%       { opacity: 1;   transform: translateX(-50%) translateY(8px); }
+}
+
+@media (min-width: 1920px) {
+  .hero { padding-bottom: 140px; }
+  .tagline { max-width: min(720px, 100%); }
+  .ctas { gap: 24px; }
 }
 
 @media (max-width: 768px) {

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useLayoutEffect, useCallback } from 'react'
 import { Container } from '../../ui/Container/Container'
 import { MobileNav } from '../MobileNav/MobileNav'
 import { useNavScroll } from '../../../hooks/useNavScroll'
@@ -7,10 +7,28 @@ import styles from './Navbar.module.css'
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const scrolled = useNavScroll(60)
+  const navRef = useRef(null)
+
+  const syncNavHeight = useCallback(() => {
+    if (!navRef.current) return
+    const height = Math.ceil(navRef.current.getBoundingClientRect().height)
+    document.documentElement.style.setProperty('--nav-height', `${height}px`)
+  }, [])
+
+  // Atualiza antes de qualquer paint quando a classe .scrolled muda de tamanho
+  useLayoutEffect(syncNavHeight, [scrolled])
+
+  // ResizeObserver como backup para resize de viewport e carregamento de fonte
+  useLayoutEffect(() => {
+    syncNavHeight()
+    const ro = new ResizeObserver(syncNavHeight)
+    if (navRef.current) ro.observe(navRef.current)
+    return () => ro.disconnect()
+  }, [])
 
   return (
     <>
-      <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
+      <nav ref={navRef} className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
         <Container>
           <div className={styles.inner}>
             <a href="#home" className={styles.logo}>

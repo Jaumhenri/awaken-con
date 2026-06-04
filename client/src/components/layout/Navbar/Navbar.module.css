@@ -2,8 +2,8 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 20px 0;
-  transition: background 0.4s, padding 0.4s, backdrop-filter 0.4s;
+  padding: clamp(14px, 1.4vw, 28px) 0;
+  transition: background 0.4s, backdrop-filter 0.4s;
 }
 .scrolled {
   background: rgba(8,8,8,0.85);
@@ -23,7 +23,7 @@
 .logoMain {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 28px;
+  font-size: clamp(20px, 1.8vw, 36px);
   letter-spacing: 0.04em;
   background: var(--grad-warm);
   -webkit-background-clip: text;
@@ -32,7 +32,7 @@
 }
 .logoSub {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(9px, 0.6vw, 13px);
   letter-spacing: 0.15em;
   color: var(--gray);
   -webkit-text-fill-color: var(--gray);
@@ -47,7 +47,7 @@
 .links a {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 13px;
+  font-size: clamp(12px, 0.85vw, 17px);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.7);
@@ -60,10 +60,10 @@
   color: var(--white);
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 13px;
+  font-size: clamp(12px, 0.85vw, 17px);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 10px 24px;
+  padding: clamp(8px, 0.6vw, 14px) clamp(18px, 1.5vw, 32px);
   transition: opacity 0.2s, transform 0.2s;
 }
 .cta:hover { opacity: 0.88; transform: scale(1.02); }

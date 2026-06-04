@@ -1,5 +1,8 @@
 .wrapper {
-  padding: 24px 0;
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 90;
+  padding: clamp(12px, 1.2vw, 24px) 0;
   background: var(--grad-warm);
   overflow: hidden;
   white-space: nowrap;
@@ -11,11 +14,11 @@
 .item {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 22px;
+  font-size: clamp(14px, 1.3vw, 28px);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: rgba(0,0,0,0.3);
-  padding: 0 32px;
+  padding: 0 clamp(20px, 2vw, 48px);
   flex-shrink: 0;
 }
 .accent { color: rgba(0,0,0,0.7); }
