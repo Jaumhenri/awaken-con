@@ -22,7 +22,7 @@ export function Speakers() {
           {Array.from({ length: PLACEHOLDER_COUNT }, (_, i) => (
             <div key={i} className={styles.card}>
               <div className={`${styles.gradOverlay} ${styles[`grad${i}`]}`} />
-              <div className={styles.placeholder}>✦</div>
+              <div className={styles.placeholder}></div>
               <p className={styles.revealText}>Em breve<br />revelado</p>
             </div>
           ))}
