@@ -4,12 +4,12 @@ import { GradientText } from '../../ui/GradientText/GradientText'
 import styles from './Gallery.module.css'
 
 const ITEMS = [
-  { id: 1, src: '/videos/IMG_4157.MOV',                          type: 'video', label: 'Abertura · 2025' },
-  { id: 2, src: '/videos/e4bd42aaea9b4557a50fa73900eef916.MOV',  type: 'video', label: 'Louvor · 2025' },
-  { id: 3, src: '/videos/IMG_4167.MOV',                          type: 'video', label: 'Prédica · 2025' },
-  { id: 4, src: '/videos/IMG_4156.MOV',                          type: 'video', label: 'Sala Profética · 2025' },
-  { id: 5, src: '/videos/3fc421895fd24c4783c800992ee9baed.MOV',  type: 'video', label: 'Encerramento · 2025' },
-  { id: 6, src: '/videos/IMG_4169.MOV',                          type: 'video', label: 'Comunidade · 2025' },
+  { id: 1, src: '/gallery/IMG_9357.MOV', type: 'video', label: 'Abertura · 2025' },
+  { id: 2, src: '/gallery/IMG_9356.MOV', type: 'video', label: 'Louvor · 2025' },
+  { id: 3, src: '/gallery/IMG_9355.MOV', type: 'video', label: 'Prédica · 2025' },
+  { id: 4, src: '/gallery/IMG_9361.MOV', type: 'video', label: 'Sala Profética · 2025' },
+  { id: 5, src: '/gallery/IMG_9360.MOV', type: 'video', label: 'Encerramento · 2025' },
+  { id: 6, src: '/gallery/IMG_9358.MOV', type: 'video', label: 'Comunidade · 2025' },
 ]
 
 export function Gallery() {

@@ -6,7 +6,7 @@ export const FAQ = [
   },
   {
     id: 2,
-    question: 'O ingresso dá acesso aos três dias do evento?',
+    question: 'O ingresso dá acesso aos dois dias do evento?',
     answer: 'Sim! Todos os ingressos dão acesso à programação completa dos três dias da conferência, incluindo todas as sessões principais, salas paralelas e momentos de adoração.',
   },
   {
