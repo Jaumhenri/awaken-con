@@ -6,6 +6,6 @@ export const EVENT = {
   country:    'BR',
   date:       'Outubro · 2026',
   dateShort:  "OUT\n'26",
-  countdownTarget: '2026-10-10T08:00:00-03:00',
+  countdownTarget: '2026-10-16T08:00:00-03:00',
   email:      'contato@awakencon.com.br',
 }

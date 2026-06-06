@@ -11,12 +11,11 @@ export function Speakers() {
     <section className={styles.section}>
       <Container>
         <div className={`${styles.header} reveal`}>
-          <SectionTag>// palestrantes</SectionTag>
+          <SectionTag></SectionTag>
           <h2 className={styles.title}>
-            Quem vai<br />
-            <GradientText variant="warm">falar</GradientText>
+            <GradientText variant="warm">line-up</GradientText>
           </h2>
-          <p className={styles.sub}>Em breve — confirmações em andamento</p>
+          <p className={styles.sub}></p>
         </div>
 
         <div className={`${styles.grid} reveal`}>

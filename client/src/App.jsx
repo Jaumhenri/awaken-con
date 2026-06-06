@@ -8,7 +8,6 @@ import { Countdown } from './components/sections/Countdown/Countdown'
 import { Gallery }   from './components/sections/Gallery/Gallery'
 import { Speakers }  from './components/sections/Speakers/Speakers'
 import { Tickets }   from './components/sections/Tickets/Tickets'
-import { Kit }       from './components/sections/Kit/Kit'
 import { Faq }       from './components/sections/Faq/Faq'
 import { FooterCta } from './components/sections/FooterCta/FooterCta'
 
@@ -26,7 +25,6 @@ export default function App() {
 <Gallery />
         <Speakers />
         <Tickets />
-        <Kit />
         <Faq />
         <FooterCta />
       </main>
