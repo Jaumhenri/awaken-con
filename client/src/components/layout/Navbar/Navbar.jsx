@@ -46,7 +46,7 @@ export function Navbar() {
 
             <button
               className={styles.toggle}
-              onClick={() => setMenuOpen(true)}
+              onClick={() => setMenuOpen(prev => !prev)}
               aria-label="Menu"
             >
               <span /><span /><span />

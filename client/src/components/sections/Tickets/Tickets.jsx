@@ -35,7 +35,7 @@ function BatchCard({ batch, status }) {
       <div className={styles.price}>
         <p className={styles.from}>por apenas</p>
         <p className={`${styles.amount} ${isActive ? styles.amountGrad : ''}`}>
-          R$<br />{formattedPrice}
+          R$ {formattedPrice}
         </p>
         <p className={styles.installment}>ou 3× de R${installmentValue}</p>
       </div>

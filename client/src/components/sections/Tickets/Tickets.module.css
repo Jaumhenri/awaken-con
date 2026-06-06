@@ -140,4 +140,5 @@
 @media (max-width: 640px) {
   .section { padding: 64px 0; }
   .grid { grid-template-columns: 1fr; }
+  .featured { order: -1; }
 }

@@ -31,14 +31,8 @@
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
-}
-
-.close {
-  position: absolute;
-  top: 24px; right: 24px;
-  font-size: 36px;
-  cursor: pointer;
-  color: var(--white);
-  background: none;
-  border: none;
+  font-size: 36px !important;
+  text-align: center;
+  padding: 0 24px;
+  line-height: 1.15;
 }
