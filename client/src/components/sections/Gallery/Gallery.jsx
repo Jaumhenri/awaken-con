@@ -3,15 +3,13 @@ import { Container } from '../../ui/Container/Container'
 import { GradientText } from '../../ui/GradientText/GradientText'
 import styles from './Gallery.module.css'
 
-// Para adicionar fotos reais: coloque os arquivos em client/public/gallery/
-// e defina src: '/gallery/nome-do-arquivo.jpg' em cada item.
 const ITEMS = [
-  { id: 1, src: null, label: 'Abertura · 2025' },
-  { id: 2, src: null, label: 'Louvor · 2025' },
-  { id: 3, src: null, label: 'Prédica · 2025' },
-  { id: 4, src: null, label: 'Sala Profética · 2025' },
-  { id: 5, src: null, label: 'Encerramento · 2025' },
-  { id: 6, src: null, label: 'Comunidade · 2025' },
+  { id: 1, src: '/videos/IMG_4157.MOV',                          type: 'video', label: 'Abertura · 2025' },
+  { id: 2, src: '/videos/e4bd42aaea9b4557a50fa73900eef916.MOV',  type: 'video', label: 'Louvor · 2025' },
+  { id: 3, src: '/videos/IMG_4167.MOV',                          type: 'video', label: 'Prédica · 2025' },
+  { id: 4, src: '/videos/IMG_4156.MOV',                          type: 'video', label: 'Sala Profética · 2025' },
+  { id: 5, src: '/videos/3fc421895fd24c4783c800992ee9baed.MOV',  type: 'video', label: 'Encerramento · 2025' },
+  { id: 6, src: '/videos/IMG_4169.MOV',                          type: 'video', label: 'Comunidade · 2025' },
 ]
 
 export function Gallery() {
@@ -54,9 +52,20 @@ export function Gallery() {
           {ITEMS.map((item) => (
             <div
               key={item.id}
-              className={`${styles.item} ${styles[`item${item.id}`]} ${styles[`bg${item.id}`]}`}
-              style={item.src ? { backgroundImage: `url(${item.src})` } : undefined}
+              className={`${styles.item} ${styles[`item${item.id}`]} ${!item.src ? styles[`bg${item.id}`] : ''}`}
             >
+              {item.type === 'video' && item.src ? (
+                <video
+                  className={styles.media}
+                  src={item.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              ) : item.src ? (
+                <img className={styles.media} src={item.src} alt={item.label} />
+              ) : null}
               <div className={styles.overlay}>
                 <span className={styles.overlayLabel}>{item.label}</span>
               </div>

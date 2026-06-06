@@ -18,9 +18,9 @@ export function Speakers() {
           <p className={styles.sub}></p>
         </div>
 
-        <div className={`${styles.grid} reveal`}>
+        <div className={styles.grid}>
           {Array.from({ length: PLACEHOLDER_COUNT }, (_, i) => (
-            <div key={i} className={styles.card}>
+            <div key={i} className={`${styles.card} reveal-scale`} data-delay={i + 1}>
               <div className={`${styles.gradOverlay} ${styles[`grad${i}`]}`} />
               <div className={styles.placeholder}></div>
               <p className={styles.revealText}>Em breve<br />revelado</p>

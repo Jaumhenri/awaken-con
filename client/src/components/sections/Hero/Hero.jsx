@@ -14,14 +14,14 @@ export function Hero() {
       </div>
 
       <div className={styles.content}>
-        <h1 className={styles.title}>
+        <h1 className={`${styles.title} reveal`} data-delay="1">
           <GradientText variant="warm" as="span" className={styles.line1}>Awaken</GradientText>
           <span className={styles.line2}>Conference</span>
         </h1>
-        <p className={styles.tagline}>
+        <p className={`${styles.tagline} reveal`} data-delay="2">
           A história não parou em <em>Atos 28.</em><br></br><em>Deus continua agindo.</em>
         </p>
-        <div className={styles.ctas}>
+        <div className={`${styles.ctas} reveal`} data-delay="3">
           <Button href="https://nextingresso.com.br/evento/awaken-conference-2026" target="_blank" rel="noopener noreferrer" variant="primary">Garanta seu Ingresso →</Button>
           <Button href="#sobre"     variant="outline">Saiba Mais</Button>
         </div>

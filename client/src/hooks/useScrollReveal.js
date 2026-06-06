@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export function useScrollReveal(selector = '.reveal') {
+export function useScrollReveal(selector = '.reveal, .reveal-left, .reveal-right, .reveal-scale') {
   useEffect(() => {
     const elements = document.querySelectorAll(selector)
     const observer = new IntersectionObserver(

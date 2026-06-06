@@ -21,15 +21,15 @@ export function Countdown() {
   return (
     <div className={styles.wrapper}>
       <Container>
-        <p className={styles.label}>// contagem regressiva para o evento</p>
+        <p className={`${styles.label} reveal`}>// contagem regressiva para o evento</p>
       </Container>
       <div className={styles.section}>
         <PlasmaCanvas />
         <div className={styles.plasmaOverlay} />
         <Container className={styles.content}>
           <div className={styles.grid}>
-            {UNITS.map(({ key, label, padLen }) => (
-              <div key={key} className={styles.unit}>
+            {UNITS.map(({ key, label, padLen }, i) => (
+              <div key={key} className={`${styles.unit} reveal-scale`} data-delay={i + 1}>
                 <div className={styles.count}>{pad(timeLeft[key], padLen)}</div>
                 <div className={styles.unitLabel}>{label}</div>
               </div>

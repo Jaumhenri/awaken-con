@@ -11,8 +11,8 @@ export function Kit() {
       <Container>
         <div className={styles.inner}>
           <div className={styles.visual} aria-hidden="true">
-            {KIT.items.map((item) => (
-              <div key={item.name} className={styles.box}>
+            {KIT.items.map((item, i) => (
+              <div key={item.name} className={`${styles.box} reveal-scale`} data-delay={i + 1}>
                 <div className={styles.boxIcon}>{item.icon}</div>
                 <div className={styles.boxText}>
                   <strong>{item.name}</strong>

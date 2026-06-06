@@ -18,7 +18,7 @@ function getBatchStatus(batch, allBatches) {
   return hasEarlierActive ? 'upcoming' : 'active'
 }
 
-function BatchCard({ batch, status }) {
+function BatchCard({ batch, status, delay }) {
   const isActive = status === 'active'
   const isSoldOut = status === 'sold-out'
 
@@ -27,7 +27,7 @@ function BatchCard({ batch, status }) {
   const installmentValue = isPlaceholder ? batch.price : (batch.price / 3).toFixed(2).replace('.', ',')
 
   return (
-    <div className={`${styles.card} ${isActive ? styles.featured : ''} ${isSoldOut ? styles.soldOut : ''} reveal`}>
+    <div className={`${styles.card} ${isActive ? styles.featured : ''} ${isSoldOut ? styles.soldOut : ''} reveal-scale`} data-delay={delay}>
       {isActive && <span className={styles.badge}>⚡ Disponível agora</span>}
 
       <p className={styles.name}>{batch.name}</p>
@@ -69,11 +69,12 @@ export function Tickets() {
         </div>
 
         <div className={styles.grid}>
-          {BATCHES.map((batch) => (
+          {BATCHES.map((batch, i) => (
             <BatchCard
               key={batch.id}
               batch={batch}
               status={getBatchStatus(batch, BATCHES)}
+              delay={i + 1}
             />
           ))}
         </div>
