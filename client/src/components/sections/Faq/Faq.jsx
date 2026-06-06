@@ -5,11 +5,11 @@ import { GradientText } from '../../ui/GradientText/GradientText'
 import { FAQ } from '../../../constants/faq'
 import styles from './Faq.module.css'
 
-function FaqItem({ item, delay }) {
+function FaqItem({ item }) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className={`${styles.item} ${open ? styles.open : ''} reveal`} data-delay={delay}>
+    <div className={`${styles.item} ${open ? styles.open : ''}`}>
       <button className={styles.question} onClick={() => setOpen(!open)}>
         <span>{item.question}</span>
         <span className={styles.icon}>+</span>
@@ -31,9 +31,9 @@ export function Faq() {
             <GradientText variant="cool">FAQ</GradientText>
           </h2>
         </div>
-        <div className={styles.list}>
-          {FAQ.map((item, i) => (
-            <FaqItem key={item.id} item={item} delay={Math.min(i + 1, 5)} />
+        <div className={`${styles.list} reveal`}>
+          {FAQ.map((item) => (
+            <FaqItem key={item.id} item={item} />
           ))}
         </div>
       </Container>
