@@ -2,9 +2,9 @@ export const BATCHES = [
   {
     id: 'lote-1',
     name: '1º Lote',
-    price: 69.90,
-    deadline: '2026-08-20',
-    deadlineLabel: 'até 20 de agosto',
+    price: 'XX,xx',
+    deadline: null,
+    deadlineLabel: '',
   },
   {
     id: 'lancamento',
@@ -16,8 +16,8 @@ export const BATCHES = [
   {
     id: 'lote-2',
     name: '2º Lote',
-    price: 89.90,
+    price: 'XX,xx',
     deadline: null,
-    deadlineLabel: 'até esgotar',
+    deadlineLabel: '',
   },
 ]

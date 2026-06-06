@@ -22,8 +22,9 @@ function BatchCard({ batch, status }) {
   const isActive = status === 'active'
   const isSoldOut = status === 'sold-out'
 
-  const formattedPrice = batch.price.toFixed(2).replace('.', ',')
-  const installmentValue = (batch.price / 3).toFixed(2).replace('.', ',')
+  const isPlaceholder = typeof batch.price !== 'number'
+  const formattedPrice = isPlaceholder ? batch.price : batch.price.toFixed(2).replace('.', ',')
+  const installmentValue = isPlaceholder ? batch.price : (batch.price / 3).toFixed(2).replace('.', ',')
 
   return (
     <div className={`${styles.card} ${isActive ? styles.featured : ''} ${isSoldOut ? styles.soldOut : ''} reveal`}>
@@ -35,9 +36,9 @@ function BatchCard({ batch, status }) {
       <div className={styles.price}>
         <p className={styles.from}>por apenas</p>
         <p className={`${styles.amount} ${isActive ? styles.amountGrad : ''}`}>
-          R$ {formattedPrice}
+          {isPlaceholder ? formattedPrice : `R$ ${formattedPrice}`}
         </p>
-        <p className={styles.installment}>ou 3× de R${installmentValue}</p>
+        {!isPlaceholder && <p className={styles.installment}>ou 3× de R${installmentValue}</p>}
       </div>
 
       <div style={{ flex: 1 }} />
@@ -65,7 +66,6 @@ export function Tickets() {
             Garanta seu<br />
             <GradientText variant="fire">ingresso</GradientText>
           </h2>
-          <p className={styles.sub}>Preço único — vagas limitadas por lote</p>
         </div>
 
         <div className={styles.grid}>
