@@ -15,7 +15,7 @@ export function Concept() {
       <div className={styles.watermark} aria-hidden="true">ATOS 29</div>
       <Container>
         <div className={styles.grid}>
-          <div className={`${styles.left} reveal-left`}>
+          <div className={styles.left}>
             <h2 className={styles.statement}>
               O despertar<br />de uma
               <GradientText variant="warm"> geração</GradientText>
@@ -25,7 +25,7 @@ export function Concept() {
 
           <div className={styles.right}>
             {STATS.map((s, i) => (
-              <div key={s.label} className={`${styles.stat} reveal-scale`} data-delay={i + 1}>
+              <div key={s.label} className={styles.stat}>
                 <div className={styles.statNumber}>{s.number}</div>
                 <div className={styles.statLabel}>{s.label}</div>
               </div>
