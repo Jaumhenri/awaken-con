@@ -66,9 +66,6 @@ export function Gallery() {
               ) : item.src ? (
                 <img className={styles.media} src={item.src} alt={item.label} />
               ) : null}
-              <div className={styles.overlay}>
-                <span className={styles.overlayLabel}>{item.label}</span>
-              </div>
             </div>
           ))}
         </div>
