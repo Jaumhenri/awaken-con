@@ -2,12 +2,12 @@ export const FAQ = [
   {
     id: 1,
     question: 'Quando e onde acontece a Awaken Conference?',
-    answer: 'A Awaken Conference \'26 acontece em <strong>outubro de 2026</strong>, em <strong>Gravataí/RS, Brasil</strong>. Rua Santa Clara, 192. Nos dias 16,17 e 18 de Outubro',
+    answer: 'A Awaken Conference \'26 acontece em <strong>outubro de 2026</strong>, em <strong>Gravataí/RS, Brasil</strong>. Rua Santa Clara, 192. Nos dias 16 e 17 de Outubro',
   },
   {
     id: 2,
     question: 'O ingresso dá acesso aos dois dias do evento?',
-    answer: 'Sim! Todos os ingressos dão acesso à programação completa dos três dias da conferência, incluindo todas as sessões principais, salas paralelas e momentos de adoração.',
+    answer: 'Sim! Todos os ingressos dão acesso à programação completa dos dois dias da conferência, incluindo todas as sessões principais, salas paralelas e momentos de adoração.',
   },
   {
     id: 3,
