@@ -26,7 +26,6 @@ export function Gallery() {
       ([entry]) => {
         if (entry.isIntersecting) {
           grid.classList.add(styles.assembling)
-          // delay máximo (0.38s) + duração (0.6s) + margem
           timer = setTimeout(() => {
             grid.classList.remove(styles.assembling)
             grid.classList.add(styles.done)
@@ -34,7 +33,7 @@ export function Gallery() {
           observer.disconnect()
         }
       },
-      { threshold: 0.6 }
+      { threshold: 0.05, rootMargin: '0px 0px 100px 0px' }
     )
 
     observer.observe(grid)

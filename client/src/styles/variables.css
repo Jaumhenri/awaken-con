@@ -20,7 +20,8 @@
   --grad-cool:   linear-gradient(135deg, #0022ff, #00ddff);
   --grad-purple: linear-gradient(135deg, #6600cc, #ff0066, #ff5500);
 
-  --font-display: 'Barlow Condensed', sans-serif;
+  --font-display: 'Tusker Grotesk', sans-serif;
+  --font-tusker:  'Tusker Grotesk', sans-serif;
   --font-body:    'Space Grotesk', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
 }

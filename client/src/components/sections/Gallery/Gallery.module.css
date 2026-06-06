@@ -11,7 +11,7 @@
   font-weight: 900;
   font-size: clamp(40px, 6vw, 140px);
   text-transform: uppercase;
-  line-height: 0.9;
+  line-height: 1.15;
 }
 .header p {
   font-family: var(--font-mono);
@@ -127,43 +127,32 @@
   .header p { text-align: left; max-width: 100%; }
 
   .grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 4px;
-    padding: 10px;
-    margin: -10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, clamp(90px, 22vw, 160px));
+    gap: 5px;
+    padding: 16px;
+    margin: -16px;
   }
 
   .item1, .item2, .item3, .item4, .item5, .item6 {
-    grid-column: auto;
-    grid-row: auto;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: unset;
     --tx: 0px; --ty: 0px; --r: 0deg;
     z-index: auto;
   }
-  .item1 { grid-column: span 2; aspect-ratio: 16 / 9; --ty: 5px; }
-  .item2 { --tx: -5px; z-index: 2; }
-  .item3 { --tx: 5px; --ty: -5px; z-index: 2; }
-  .item4 { --tx: -4px; --ty: 4px; }
-  .item5 { grid-column: span 2; aspect-ratio: 16 / 9; --ty: -5px; z-index: 2; }
-  .item6 { --tx: -4px; --ty: -4px; }
+
+  .item1 { grid-column: 1 / 3; grid-row: 1;     --ty: 16px; }
+  .item2 { grid-column: 1;     grid-row: 2 / 5;  --tx: 10px; --r: 1deg;    z-index: 3; }
+  .item3 { grid-column: 2;     grid-row: 2;      --tx: -10px; --ty: -14px; --r: -0.7deg; z-index: 2; }
+  .item4 { grid-column: 2;     grid-row: 3;      --tx: -8px;  --ty: 10px;  --r: 0.9deg; }
+  .item6 { grid-column: 2;     grid-row: 4;      --tx: -10px; --ty: -8px;  --r: 0.6deg; }
+  .item5 { grid-column: 1 / 3; grid-row: 5;      --ty: -16px; --r: -0.3deg; z-index: 2; }
 
   .overlay { opacity: 1; }
 
   .assembling .item:nth-child(1) { transition-delay: 0.05s; }
-  .assembling .item:nth-child(2) { transition-delay: 0.18s; }
-  .assembling .item:nth-child(3) { transition-delay: 0.30s; }
-  .assembling .item:nth-child(4) { transition-delay: 0.42s; }
-  .assembling .item:nth-child(5) { transition-delay: 0.24s; }
-  .assembling .item:nth-child(6) { transition-delay: 0.52s; }
-}
-
-@media (max-width: 480px) {
-  .grid { grid-template-columns: 1fr; padding: 6px; margin: -6px; }
-  .item1, .item2, .item3, .item4, .item5, .item6 {
-    grid-column: auto;
-    aspect-ratio: 16 / 9;
-    --tx: 0px; --ty: 0px; --r: 0deg;
-    z-index: auto;
-  }
+  .assembling .item:nth-child(2) { transition-delay: 0.22s; }
+  .assembling .item:nth-child(3) { transition-delay: 0.38s; }
+  .assembling .item:nth-child(4) { transition-delay: 0.52s; }
+  .assembling .item:nth-child(5) { transition-delay: 0.30s; }
+  .assembling .item:nth-child(6) { transition-delay: 0.65s; }
 }

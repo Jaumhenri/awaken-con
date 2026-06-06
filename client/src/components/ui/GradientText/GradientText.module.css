@@ -3,6 +3,8 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+  padding-top: 0.15em;
+  padding-bottom: 0.1em;
 }
 .warm   { background-image: var(--grad-warm); }
 .fire   { background-image: var(--grad-fire); }
