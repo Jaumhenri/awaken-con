@@ -62,6 +62,7 @@ export function Gallery() {
                   muted
                   loop
                   playsInline
+                  preload="none"
                 />
               ) : item.src ? (
                 <img className={styles.media} src={item.src} alt={item.label} />
