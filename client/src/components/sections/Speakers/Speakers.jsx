@@ -47,7 +47,7 @@ export function Speakers() {
                 </div>
               ) : (
                 <div key={speaker.name} className={`${styles.card} reveal-scale`} data-delay={i + 1}>
-                  <img className={`${styles.photo} ${speaker.zoom ? styles.photoZoom : ''}`} src={speaker.photo} alt={speaker.name} style={speaker.pos ? { objectPosition: speaker.pos } : undefined} />
+                  <img className={`${styles.photo} ${speaker.zoom ? styles.photoZoom : ''}`} src={speaker.photo} alt={speaker.name} loading="lazy" style={speaker.pos ? { objectPosition: speaker.pos } : undefined} />
                   <div className={styles.nameOverlay}>
                     <p className={styles.name}>{speaker.name}</p>
                   </div>

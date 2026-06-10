@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const SCALE        = 5
+const SCALE         = window.innerWidth < 768 ? 9 : 5
 const BLEND_SAMPLES = 5
 
 const NODES = [
