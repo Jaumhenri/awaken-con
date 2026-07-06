@@ -20,6 +20,7 @@ function getBatchStatus(batch, allBatches) {
   const now = new Date()
   const batchDeadline = batch.deadline ? parseDeadline(batch.deadline) : null
 
+  if (!batch.deadline) return 'upcoming'
   if (batchDeadline && batchDeadline < now) return 'sold-out'
 
   const hasEarlierActive = allBatches.some((b) => {
