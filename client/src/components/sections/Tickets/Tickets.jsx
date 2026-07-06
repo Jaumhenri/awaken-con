@@ -5,15 +5,29 @@ import { Button } from '../../ui/Button/Button'
 import { BATCHES } from '../../../constants/tickets'
 import styles from './Tickets.module.css'
 
+function parseDeadline(deadline) {
+  if (!deadline) return null
+
+  if (typeof deadline === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(deadline)) {
+    const [year, month, day] = deadline.split('-').map(Number)
+    return new Date(year, month - 1, day, 23, 59, 59, 999)
+  }
+
+  return new Date(deadline)
+}
+
 function getBatchStatus(batch, allBatches) {
   const now = new Date()
-  const batchDeadline = batch.deadline ? new Date(batch.deadline) : Infinity
+  const batchDeadline = batch.deadline ? parseDeadline(batch.deadline) : null
 
-  if (batch.deadline && batchDeadline < now) return 'sold-out'
+  if (batchDeadline && batchDeadline < now) return 'sold-out'
 
-  const hasEarlierActive = allBatches.some(
-    (b) => b.id !== batch.id && b.deadline && new Date(b.deadline) < batchDeadline && new Date(b.deadline) >= now
-  )
+  const hasEarlierActive = allBatches.some((b) => {
+    if (b.id === batch.id || !b.deadline) return false
+
+    const otherDeadline = parseDeadline(b.deadline)
+    return otherDeadline && otherDeadline < batchDeadline && otherDeadline >= now
+  })
 
   return hasEarlierActive ? 'upcoming' : 'active'
 }
