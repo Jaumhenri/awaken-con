@@ -5,41 +5,51 @@ import { Button } from '../../ui/Button/Button'
 import { BATCHES } from '../../../constants/tickets'
 import styles from './Tickets.module.css'
 
-function parseDeadline(deadline) {
-  if (!deadline) return null
+function parseDate(value, { endOfDay = false } = {}) {
+  if (!value) return null
 
-  if (typeof deadline === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(deadline)) {
-    const [year, month, day] = deadline.split('-').map(Number)
-    return new Date(year, month - 1, day, 23, 59, 59, 999)
+  if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    const [year, month, day] = value.split('-').map(Number)
+    return new Date(year, month - 1, day, endOfDay ? 23 : 0, endOfDay ? 59 : 0, endOfDay ? 59 : 0, endOfDay ? 999 : 0)
   }
 
-  return new Date(deadline)
+  return new Date(value)
 }
 
 function getBatchStatus(batch, allBatches) {
   const now = new Date()
-  const batchDeadline = batch.deadline ? parseDeadline(batch.deadline) : null
+  const batchDeadline = batch.deadline ? parseDate(batch.deadline, { endOfDay: true }) : null
+  const batchStart = batch.startsAt ? parseDate(batch.startsAt) : null
 
-  if (!batch.deadline) return 'upcoming'
   if (batchDeadline && batchDeadline < now) return 'sold-out'
+  if (!batch.deadline && !batch.startsAt) return 'upcoming'
+  if (batchStart && batchStart > now) return 'upcoming'
 
-  const hasEarlierActive = allBatches.some((b) => {
-    if (b.id === batch.id || !b.deadline) return false
+  const activeBatch = allBatches.find((candidate) => {
+    if (!candidate.deadline && !candidate.startsAt) return false
 
-    const otherDeadline = parseDeadline(b.deadline)
-    return otherDeadline && otherDeadline < batchDeadline && otherDeadline >= now
+    const candidateDeadline = candidate.deadline ? parseDate(candidate.deadline, { endOfDay: true }) : null
+    const candidateStart = candidate.startsAt ? parseDate(candidate.startsAt) : null
+
+    if (candidateDeadline && candidateDeadline < now) return false
+    if (candidateStart && candidateStart > now) return false
+
+    return true
   })
 
-  return hasEarlierActive ? 'upcoming' : 'active'
+  return batch.id === activeBatch?.id ? 'active' : 'upcoming'
 }
 
 function BatchCard({ batch, status, delay }) {
   const isActive = status === 'active'
   const isSoldOut = status === 'sold-out'
 
-  const isPlaceholder = typeof batch.price !== 'number'
-  const formattedPrice = isPlaceholder ? batch.price : batch.price.toFixed(2).replace('.', ',')
-  const installmentValue = isPlaceholder ? batch.price : (batch.price / 3).toFixed(2).replace('.', ',')
+  const now = new Date()
+  const shouldRevealPrice = !batch.priceHiddenAt || now >= parseDate(batch.priceHiddenAt)
+  const displayPriceValue = shouldRevealPrice && typeof batch.actualPrice === 'number' ? batch.actualPrice : batch.price
+  const isPlaceholder = typeof displayPriceValue !== 'number'
+  const formattedPrice = isPlaceholder ? displayPriceValue : displayPriceValue.toFixed(2).replace('.', ',')
+  const installmentValue = isPlaceholder ? displayPriceValue : (displayPriceValue / 3).toFixed(2).replace('.', ',')
 
   return (
     <div className={`${styles.card} ${isActive ? styles.featured : ''} ${isSoldOut ? styles.soldOut : ''} reveal-scale`} data-delay={delay}>
@@ -72,6 +82,23 @@ function BatchCard({ batch, status, delay }) {
 }
 
 export function Tickets() {
+  const now = new Date()
+  const switchStart = new Date(2026, 6, 7, 0, 0, 0, 0)
+  const orderedBatches = [...BATCHES].sort((a, b) => {
+    const isSwitchActive = now >= switchStart
+
+    if (!isSwitchActive) {
+      if (a.id === 'lote-1' && b.id === 'lancamento') return -1
+      if (a.id === 'lancamento' && b.id === 'lote-1') return 1
+      return (a.displayOrder ?? 0) - (b.displayOrder ?? 0)
+    }
+
+    if (a.id === 'lancamento' && b.id === 'lote-1') return -1
+    if (a.id === 'lote-1' && b.id === 'lancamento') return 1
+
+    return (a.displayOrder ?? 0) - (b.displayOrder ?? 0)
+  })
+
   return (
     <section className={styles.section} id="ingressos">
       <Container>
@@ -84,11 +111,11 @@ export function Tickets() {
         </div>
 
         <div className={styles.grid}>
-          {BATCHES.map((batch, i) => (
+          {orderedBatches.map((batch, i) => (
             <BatchCard
               key={batch.id}
               batch={batch}
-              status={getBatchStatus(batch, BATCHES)}
+              status={getBatchStatus(batch, orderedBatches)}
               delay={i + 1}
             />
           ))}
