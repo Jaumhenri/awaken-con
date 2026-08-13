@@ -5,12 +5,12 @@ import { GradientText } from '../../ui/GradientText/GradientText'
 import styles from './Speakers.module.css'
 
 const SPEAKERS = [
-  { name: 'Pastor Duda',    photo: '/gallery/DSC00852.JPG',                                       pos: 'center top' },
-  { name: 'Pastor Patrick', photo: '/gallery/WhatsApp Image 2026-06-06 at 01.25.50.jpeg', pos: 'center top' },
-  { name: 'Pastor Oseias',  photo: '/gallery/WhatsApp Image 2026-06-06 at 01.28.47.jpeg' },
-  { soon: true },
-  { soon: true },
-  { soon: true },
+  { name: 'Gabriel Namorato',photo: '/gallery/IMG_2564.JPG.jpeg',                                 pos: 'center top' },
+  { name: 'Lucas Paulo',     photo: '/gallery/IMG_4266.JPG',                                      pos: 'center top' },
+  { name: 'Pastor Patrick',  photo: '/gallery/WhatsApp Image 2026-06-06 at 01.25.50.jpeg', pos: 'center top' },
+  { name: 'Pastor Duda',     photo: '/gallery/DSC00852.JPG',                                       pos: 'center top' },
+  { name: 'Pastor Oseias',   photo: '/gallery/WhatsApp Image 2026-06-06 at 01.28.47.jpeg' },
+  { name: 'Ivales Music',    photo: '/gallery/ivales-music.png',                                  pos: 'center center' },
 ]
 
 const GRAD = ['cool', 'fire', 'warm', 'purple']
