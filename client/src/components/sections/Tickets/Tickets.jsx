@@ -82,22 +82,8 @@ function BatchCard({ batch, status, delay }) {
 }
 
 export function Tickets() {
-  const now = new Date()
-  const switchStart = new Date(2026, 6, 7, 0, 0, 0, 0)
-  const orderedBatches = [...BATCHES].sort((a, b) => {
-    const isSwitchActive = now >= switchStart
+  const orderedBatches = [...BATCHES].sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0))
 
-    if (!isSwitchActive) {
-      if (a.id === 'lote-1' && b.id === 'lancamento') return -1
-      if (a.id === 'lancamento' && b.id === 'lote-1') return 1
-      return (a.displayOrder ?? 0) - (b.displayOrder ?? 0)
-    }
-
-    if (a.id === 'lancamento' && b.id === 'lote-1') return -1
-    if (a.id === 'lote-1' && b.id === 'lancamento') return 1
-
-    return (a.displayOrder ?? 0) - (b.displayOrder ?? 0)
-  })
 
   return (
     <section className={styles.section} id="ingressos">
